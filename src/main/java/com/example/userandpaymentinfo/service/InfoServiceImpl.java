@@ -125,4 +125,34 @@ public class InfoServiceImpl implements InfoService{
     public List<Casopis> getAllCasopisi() {
         return casopisRepository.findAll();
     }
+
+    @Override
+    public PodaciORacunu addPodaciORacunu(PodaciORacunuDTO podaciORacunuDTO, Long id) {
+
+        PodaciORacunu newRacun = new PodaciORacunu();
+
+        newRacun.setNacinPlacanja(podaciORacunuDTO.getNacinPlacanja());
+        newRacun.setBrojRacuna(podaciORacunuDTO.getBrojRacuna());
+        newRacun.setCenaZaPretplatu(podaciORacunuDTO.getCenaZaPretplatu());
+        newRacun.setCasopis(casopisRepository.findOneById(id));
+
+        return podaciORacunuRepository.save(newRacun);
+    }
+
+    @Override
+    public PodaciORacunu updatePodaciORacunu(PodaciORacunuDTO podaciORacunuDTO, Long id) {
+
+        PodaciORacunu updateRacun = podaciORacunuRepository.findOneById(id);
+
+        updateRacun.setNacinPlacanja(podaciORacunuDTO.getNacinPlacanja());
+        updateRacun.setBrojRacuna(podaciORacunuDTO.getBrojRacuna());
+        updateRacun.setCenaZaPretplatu(podaciORacunuDTO.getCenaZaPretplatu());
+
+        return podaciORacunuRepository.save(updateRacun);
+    }
+
+    @Override
+    public List<PodaciORacunu> getSveRacuneJednogCasopisa(Long idCasopisa) {
+        return podaciORacunuRepository.findAllByCasopis_Id(idCasopisa);
+    }
 }

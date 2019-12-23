@@ -13,8 +13,8 @@ public class CasopisDTO {
     private Boolean autorPlaca;
     private Long glavniUrednik;
 
-    private List<NaucnaOblastDTO> listaNaucnihOblasti = new ArrayList<NaucnaOblastDTO>();
-    private List<PodaciORacunuDTO> listaPodatakaORacunima = new ArrayList<PodaciORacunuDTO>();
+    private List<NaucnaOblastDTO> naucneOblasti = new ArrayList<NaucnaOblastDTO>();
+    private List<PodaciORacunuDTO> podaciORacunima = new ArrayList<PodaciORacunuDTO>();
     private List<RecenzentDTO> listaRecenzenata = new ArrayList<RecenzentDTO>();
     private List<UrednikDTO> listaUrednika = new ArrayList<UrednikDTO>();
 
@@ -59,19 +59,19 @@ public class CasopisDTO {
     }
 
     public List<NaucnaOblastDTO> getListaNaucnihOblasti() {
-        return listaNaucnihOblasti;
+        return naucneOblasti;
     }
 
     public void setListaNaucnihOblasti(List<NaucnaOblastDTO> listaNaucnihOblasti) {
-        this.listaNaucnihOblasti = listaNaucnihOblasti;
+        this.naucneOblasti = listaNaucnihOblasti;
     }
 
     public List<PodaciORacunuDTO> getListaPodatakaORacunima() {
-        return listaPodatakaORacunima;
+        return podaciORacunima;
     }
 
     public void setListaPodatakaORacunima(List<PodaciORacunuDTO> listaPodatakaORacunima) {
-        this.listaPodatakaORacunima = listaPodatakaORacunima;
+        this.podaciORacunima = listaPodatakaORacunima;
     }
 
     public List<RecenzentDTO> getListaRecenzenata() {

@@ -1,8 +1,10 @@
 package com.example.userandpaymentinfo.controller;
 
 import com.example.userandpaymentinfo.dto.CasopisDTO;
+import com.example.userandpaymentinfo.dto.PodaciORacunuDTO;
 import com.example.userandpaymentinfo.dto.UrednikDTO;
 import com.example.userandpaymentinfo.model.Casopis;
+import com.example.userandpaymentinfo.model.PodaciORacunu;
 import com.example.userandpaymentinfo.model.Urednik;
 import com.example.userandpaymentinfo.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +63,29 @@ public class InfoController {
         return new ResponseEntity<Casopis>(infoService.updateCasopis(casopisDTO), HttpStatus.OK);
 
     }
+
+    @RequestMapping(value = "/journal/{id}/paymentmethod", method = RequestMethod.GET)
+    public ResponseEntity<List<PodaciORacunu>> getSveRacuneJednogCasopisa(@PathVariable("id") Long id) {
+
+        return new ResponseEntity<List<PodaciORacunu>>(infoService.getSveRacuneJednogCasopisa(id), HttpStatus.OK);
+
+    }
+
+    @RequestMapping(value = "/journal/{id}/paymentmethod", method = RequestMethod.POST)
+    public ResponseEntity<PodaciORacunu> addPodaciORacunu(@RequestBody PodaciORacunuDTO podaciORacunuDTO, @PathVariable("id") Long id) {
+
+        return new ResponseEntity<PodaciORacunu>(infoService.addPodaciORacunu(podaciORacunuDTO, id), HttpStatus.OK);
+
+    }
+
+    @RequestMapping(value = "/journal/{id}/paymentmethod/{idPayment}", method = RequestMethod.PUT)
+    public ResponseEntity<PodaciORacunu> updatePodaciORacunu(@RequestBody PodaciORacunuDTO podaciORacunuDTO, @PathVariable("id") Long id,
+                                                             @PathVariable("idPayment") Long idPayment) {
+
+        return new ResponseEntity<PodaciORacunu>(infoService.updatePodaciORacunu(podaciORacunuDTO, idPayment), HttpStatus.OK);
+
+    }
+
+
 
 }
