@@ -13,11 +13,10 @@ public class PodaciORacunu {
     private Long id;
 
     @Column(name = "nacinPlacanja", unique = false, nullable = false)
-    @Enumerated(EnumType.STRING)
-    private NacinPlacanja nacinPlacanja;
+    private String nacinPlacanja;
 
     @Column(name = "brojRacuna", unique = false, nullable = false)
-    private Long brojRacuna;
+    private String brojRacuna;
 
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -42,19 +41,19 @@ public class PodaciORacunu {
         this.id = id;
     }
 
-    public NacinPlacanja getNacinPlacanja() {
+    public String getNacinPlacanja() {
         return nacinPlacanja;
     }
 
-    public void setNacinPlacanja(NacinPlacanja nacinPlacanja) {
+    public void setNacinPlacanja (String nacinPlacanja) {
         this.nacinPlacanja = nacinPlacanja;
     }
 
-    public Long getBrojRacuna() {
+    public String getBrojRacuna() {
         return brojRacuna;
     }
 
-    public void setBrojRacuna(Long brojRacuna) {
+    public void setBrojRacuna(String brojRacuna) {
         this.brojRacuna = brojRacuna;
     }
 

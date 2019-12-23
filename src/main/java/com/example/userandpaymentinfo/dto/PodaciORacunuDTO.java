@@ -1,12 +1,10 @@
 package com.example.userandpaymentinfo.dto;
 
-import com.example.userandpaymentinfo.model.NacinPlacanja;
-
 public class PodaciORacunuDTO {
 
     private Long id;
-    private NacinPlacanja nacinPlacanja;
-    private Long brojRacuna;
+    private String nacinPlacanja;
+    private String brojRacuna;
     private Long casopisId;
     private int cenaZaPretplatu;
 
@@ -26,19 +24,19 @@ public class PodaciORacunuDTO {
         this.id = id;
     }
 
-    public NacinPlacanja getNacinPlacanja() {
+    public String getNacinPlacanja() {
         return nacinPlacanja;
     }
 
-    public void setNacinPlacanja(NacinPlacanja nacinPlacanja) {
+    public void setNacinPlacanja(String nacinPlacanja) {
         this.nacinPlacanja = nacinPlacanja;
     }
 
-    public Long getBrojRacuna() {
+    public String getBrojRacuna() {
         return brojRacuna;
     }
 
-    public void setBrojRacuna(Long brojRacuna) {
+    public void setBrojRacuna(String brojRacuna) {
         this.brojRacuna = brojRacuna;
     }
 
